@@ -1,0 +1,8 @@
+config.json
+.vscode/
+.idea/
+__pycache__/
+data/
+calculations/
+notes/
+results/
