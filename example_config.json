@@ -1,0 +1,6 @@
+{
+    "request_bin_url": "<YOUR LINK GOES HERE>",
+    "request_bin_auth": "Bearer <KEY GOES HERE>",
+    "yt_api_key": "<YOUR API KEY GOES HERE>",
+    "ip_stack_key": "<YOUR API KEY GOES HERE>"
+}

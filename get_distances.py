@@ -4,7 +4,7 @@ from geopy import distance
 
 with open('results 10-30-2020_23-29-59.json') as target:
     data = json.load(target)
-
+# The dictionaries were hardcoded to the names of our particular data files
 vantage_point_locations = {
     'vilnius.csv': (54.6871555, 25.2796514),
     'helsinki.csv': (60.1733244, 24.9410248),

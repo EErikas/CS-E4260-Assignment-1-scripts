@@ -65,14 +65,17 @@ def readSqliteTable():
 
 
 if __name__ == "__main__":
-    print('Executing command...')
-    os.system('./start_crawl.py -f "test.txt" -b')
-    print('Reading database....')
-    result_file = readSqliteTable()
-    print('Sending data....')
-    os.system("curl -X POST -H 'Content-Type: text/csv' -H 'Vantage-Point: {0}' -d @{1} {2}".format(
-        os.uname()[1],
-        result_file,
-        post_url
-    ))
+    source_dir = os.path.join(pwd, 'sources')
+    for soure_file in os.listdir(source_dir):
+        print('Executing command...')
+        file_path = os.path.join(source_dir, soure_file)
+        os.system('./start_crawl.py -f "{}" -b'.format(file_path))
+        print('Reading database....')
+        result_file = readSqliteTable()
+        print('Sending data....')
+        os.system("curl -X POST -H 'Content-Type: text/csv' -H 'Vantage-Point: {0}' -d @{1} {2}".format(
+            os.uname()[1] + '-' + soure_file,
+            result_file,
+            post_url
+        ))
     print('Done')
